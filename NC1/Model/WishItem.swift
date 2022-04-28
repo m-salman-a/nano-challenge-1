@@ -1,0 +1,18 @@
+//
+//  WishItem.swift
+//  NC1
+//
+//  Created by Mohammad Alfarisi on 28/04/22.
+//
+
+import Foundation
+
+struct WishItem {
+    var id: UUID
+    var name: String
+    var price: Double
+    var links: [Link]
+    var likes: [String]
+    var dislikes: [String]
+    var category: WishCategory?
+}

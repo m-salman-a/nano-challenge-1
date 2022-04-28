@@ -19,15 +19,15 @@ class ViewController: UIViewController {
         wishlistTableView.delegate = self
     }
 
-    @IBAction func addNewItemAction(_ sender: Any) {
+    @IBAction func addNewItem(_ sender: Any) {
+    }
+    
+    @IBAction func compareItems(_ sender: Any) {
         
     }
     
-    @IBAction func compareItemsAction(_ sender: Any) {
+    @IBAction func addNewFolder(_ sender: Any) {
         
-    }
-    
-    @IBAction func addNewFolderAction(_ sender: Any) {
     }
 }
 
