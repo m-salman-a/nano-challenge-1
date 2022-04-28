@@ -22,10 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
         let wishItemDataStore = WishItemDummyDataStore()
-        let wishCategoryDataStore = WishCategoryCoreDataStore(context: context)
+        let wishCategoryDataStore = WishCategoryDummyDataStore()
         
         // Setup observables
         let wishItemsObservable = WishItemsObservable(dataStore: wishItemDataStore)
+        let wishCategoriesObservable = WishCategoriesObservable(dataStore: wishCategoryDataStore)
         
         // MainStoryboard
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -33,6 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // RootViewController
         let rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "MyViewController") as! ViewController
         rootViewController.wishItemsObservable = wishItemsObservable
+        rootViewController.wishCategoriesObservable = wishCategoriesObservable
         wishItemsObservable.addListener(rootViewController)
 
         // NavigationController

@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var wishItemsObservable: WishItemsObservable!
+    var wishCategoriesObservable: WishCategoriesObservable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,10 @@ class ViewController: UIViewController {
         wishlistTableView.delegate = self
         
         guard wishItemsObservable != nil else {
+            fatalError("This view needs its observable")
+        }
+        
+        guard wishCategoriesObservable != nil else {
             fatalError("This view needs its observable")
         }
         
@@ -38,6 +43,16 @@ class ViewController: UIViewController {
     
     @IBAction func addNewFolder(_ sender: Any) {
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEdit" {
+            let dest = segue.destination as! EditItemViewController
+            
+            wishCategoriesObservable.fetchWishCategories()
+            
+            dest.categories = wishCategoriesObservable.wishCategories
+        }
     }
 }
 
