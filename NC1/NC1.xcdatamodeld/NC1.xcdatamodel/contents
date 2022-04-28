@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ManagedImage" representedClassName="ManagedImage" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedWishItem" inverseName="images" inverseEntity="ManagedWishItem"/>
+    </entity>
     <entity name="ManagedLink" representedClassName="ManagedLink" syncable="YES">
         <attribute name="placeholder" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
@@ -16,11 +20,13 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ManagedWishCategory" inverseName="items" inverseEntity="ManagedWishCategory"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ManagedImage" inverseName="relationship" inverseEntity="ManagedImage"/>
         <relationship name="links" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ManagedLink" inverseName="relationship" inverseEntity="ManagedLink"/>
     </entity>
     <elements>
+        <element name="ManagedImage" positionX="-54" positionY="63" width="128" height="59"/>
         <element name="ManagedLink" positionX="-36" positionY="36" width="128" height="74"/>
         <element name="ManagedWishCategory" positionX="-63" positionY="-18" width="128" height="59"/>
-        <element name="ManagedWishItem" positionX="-54" positionY="0" width="128" height="134"/>
+        <element name="ManagedWishItem" positionX="-54" positionY="0" width="128" height="149"/>
     </elements>
 </model>

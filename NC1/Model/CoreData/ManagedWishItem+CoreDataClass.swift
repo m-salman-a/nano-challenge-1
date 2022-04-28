@@ -35,6 +35,7 @@ public class ManagedWishItem: NSManagedObject {
     }
     
     func fromItem(item: WishItem) {
+        id = item.id
         name = item.name
         price = item.price
         likes = item.likes

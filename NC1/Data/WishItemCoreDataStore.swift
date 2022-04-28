@@ -52,7 +52,9 @@ class WishItemCoreDataStore: WishItemStoreProtocol {
         guard let managedItem = fetchManagedWishItem(id: id) else { return }
         
         managedItem.fromItem(item: item)
-
+        
+        managedItem.id = id
+        
         addLinksToManagedItem(managedItem: managedItem, links: item.links)
         
         addManagedItemToCategory(managedItem: managedItem, category: item.category)
