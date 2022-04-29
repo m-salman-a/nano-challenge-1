@@ -29,7 +29,7 @@ class WishItemsObservable: Observable {
         notifyListeners()
     }
     
-    func addWishItem(item: WishItem) {
+    func createWishItem(item: WishItem) {
         dataStore.createWishItem(item: item)
         
         fetchWishItems()

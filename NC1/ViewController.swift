@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        wishlistTableView.register(UINib(nibName: "WishlistTableViewCell", bundle: nil), forCellReuseIdentifier: "WishlistTableViewCell")
         wishlistTableView.dataSource = self
         wishlistTableView.delegate = self
         
@@ -52,6 +53,23 @@ class ViewController: UIViewController {
             wishCategoriesObservable.fetchWishCategories()
             
             dest.categories = wishCategoriesObservable.wishCategories
+            
+            print(dest.itemName)
+        }
+    }
+    
+    @IBAction func unwindFromAddItem(_ sender: UIStoryboardSegue) {
+        if sender.source is EditItemViewController {
+            let source = sender.source as! EditItemViewController
+            let item = WishItem(name: source.itemName,
+                                price: source.itemPrice,
+                                links: source.links,
+                                likes: [],
+                                dislikes: [],
+                                category: source.selectedCategory,
+                                images: source.imagesData)
+            
+            wishItemsObservable.createWishItem(item: item)
         }
     }
 }
@@ -70,18 +88,14 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WishlistTableViewCell")!
-
-        var content = cell.defaultContentConfiguration()
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WishlistTableViewCell") as! WishlistTableViewCell
         let item = wishItemsObservable.wishItems[indexPath.row]
         
-        content.text = item.name
-        content.image = UIImage()
-        content.secondaryText = "\(item.priceString)"
-        
-        cell.contentConfiguration = content
-        
+        cell.titleLabel.text = item.name
+        cell.secondaryTitleLabel.text = item.priceString
+        if let image = item.images.first {
+            cell.imageOutlet.image = UIImage(data: image) ?? UIImage()
+        }
         return cell
     }
     
@@ -110,7 +124,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let item = wishItemsObservable.wishItems[indexPath.row]
         
@@ -127,3 +141,4 @@ extension ViewController: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 }
+

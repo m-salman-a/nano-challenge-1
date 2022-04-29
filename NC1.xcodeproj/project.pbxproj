@@ -22,6 +22,10 @@
 		A152F2B0281AFB4A003F56B0 /* EditImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152F2AE281AFB4A003F56B0 /* EditImagesCollectionViewCell.swift */; };
 		A152F2B1281AFB4A003F56B0 /* EditImagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A152F2AF281AFB4A003F56B0 /* EditImagesCollectionViewCell.xib */; };
 		A152F2B3281B0469003F56B0 /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152F2B2281B0469003F56B0 /* EditItemViewController.swift */; };
+		A15B8401281B51D90073E74F /* EditItemTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B83FF281B51D90073E74F /* EditItemTableViewHeader.swift */; };
+		A15B8402281B51D90073E74F /* EditItemTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15B8400281B51D90073E74F /* EditItemTableViewHeader.xib */; };
+		A15B8405281B556F0073E74F /* EditItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B8403281B556F0073E74F /* EditItemTableViewCell.swift */; };
+		A15B8406281B556F0073E74F /* EditItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15B8404281B556F0073E74F /* EditItemTableViewCell.xib */; };
 		A172540E281A4534007A9952 /* DetailItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172540D281A4534007A9952 /* DetailItemViewController.swift */; };
 		A172543A281A5501007A9952 /* WishItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1725439281A5501007A9952 /* WishItem.swift */; };
 		A172543C281A577F007A9952 /* WishCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172543B281A577F007A9952 /* WishCategory.swift */; };
@@ -40,6 +44,8 @@
 		A1B54C9428199FE200E5446E /* NC1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1B54C9228199FE200E5446E /* NC1.xcdatamodeld */; };
 		A1B54C9628199FE200E5446E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B54C9528199FE200E5446E /* Assets.xcassets */; };
 		A1B54C9928199FE200E5446E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B54C9728199FE200E5446E /* LaunchScreen.storyboard */; };
+		A1C166C5281B8ACB00B899A1 /* WishlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C166C3281B8ACB00B899A1 /* WishlistTableViewCell.swift */; };
+		A1C166C6281B8ACB00B899A1 /* WishlistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C166C4281B8ACB00B899A1 /* WishlistTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +64,10 @@
 		A152F2AE281AFB4A003F56B0 /* EditImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		A152F2AF281AFB4A003F56B0 /* EditImagesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditImagesCollectionViewCell.xib; sourceTree = "<group>"; };
 		A152F2B2281B0469003F56B0 /* EditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewController.swift; sourceTree = "<group>"; };
+		A15B83FF281B51D90073E74F /* EditItemTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemTableViewHeader.swift; sourceTree = "<group>"; };
+		A15B8400281B51D90073E74F /* EditItemTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditItemTableViewHeader.xib; sourceTree = "<group>"; };
+		A15B8403281B556F0073E74F /* EditItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemTableViewCell.swift; sourceTree = "<group>"; };
+		A15B8404281B556F0073E74F /* EditItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditItemTableViewCell.xib; sourceTree = "<group>"; };
 		A172540D281A4534007A9952 /* DetailItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemViewController.swift; sourceTree = "<group>"; };
 		A1725439281A5501007A9952 /* WishItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishItem.swift; sourceTree = "<group>"; };
 		A172543B281A577F007A9952 /* WishCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCategory.swift; sourceTree = "<group>"; };
@@ -78,6 +88,8 @@
 		A1B54C9528199FE200E5446E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1B54C9828199FE200E5446E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1B54C9A28199FE200E5446E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1C166C3281B8ACB00B899A1 /* WishlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistTableViewCell.swift; sourceTree = "<group>"; };
+		A1C166C4281B8ACB00B899A1 /* WishlistTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +132,12 @@
 			children = (
 				A152F2AE281AFB4A003F56B0 /* EditImagesCollectionViewCell.swift */,
 				A152F2AF281AFB4A003F56B0 /* EditImagesCollectionViewCell.xib */,
+				A15B83FF281B51D90073E74F /* EditItemTableViewHeader.swift */,
+				A15B8400281B51D90073E74F /* EditItemTableViewHeader.xib */,
+				A15B8403281B556F0073E74F /* EditItemTableViewCell.swift */,
+				A15B8404281B556F0073E74F /* EditItemTableViewCell.xib */,
+				A1C166C3281B8ACB00B899A1 /* WishlistTableViewCell.swift */,
+				A1C166C4281B8ACB00B899A1 /* WishlistTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,9 +264,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C166C6281B8ACB00B899A1 /* WishlistTableViewCell.xib in Resources */,
 				A19356C12819A9AF00CD041F /* .gitignore in Resources */,
 				A1B54C9928199FE200E5446E /* LaunchScreen.storyboard in Resources */,
 				A1B54C9628199FE200E5446E /* Assets.xcassets in Resources */,
+				A15B8406281B556F0073E74F /* EditItemTableViewCell.xib in Resources */,
+				A15B8402281B51D90073E74F /* EditItemTableViewHeader.xib in Resources */,
 				A1B54C9128199FE200E5446E /* Main.storyboard in Resources */,
 				A152F2B1281AFB4A003F56B0 /* EditImagesCollectionViewCell.xib in Resources */,
 			);
@@ -266,10 +287,12 @@
 				A12F3C98281A77F400C022D5 /* WishItemCoreDataStore.swift in Sources */,
 				A1B54C8E28199FE200E5446E /* ViewController.swift in Sources */,
 				A1B54C8A28199FE200E5446E /* AppDelegate.swift in Sources */,
+				A15B8401281B51D90073E74F /* EditItemTableViewHeader.swift in Sources */,
 				A172544E281A5A3A007A9952 /* Link.swift in Sources */,
 				A19C55E5281B1B8C00E925FF /* WishCategoriesObservable.swift in Sources */,
 				A12F3CAF281AF57900C022D5 /* ManagedWishItem+CoreDataProperties.swift in Sources */,
 				A12F3CA1281AB17A00C022D5 /* WishItemsObservable.swift in Sources */,
+				A15B8405281B556F0073E74F /* EditItemTableViewCell.swift in Sources */,
 				A1725465281A6BF7007A9952 /* ManagedLink+CoreDataProperties.swift in Sources */,
 				A172543A281A5501007A9952 /* WishItem.swift in Sources */,
 				A12F3C9A281A8E9900C022D5 /* WishItemDummyDataStore.swift in Sources */,
@@ -288,6 +311,7 @@
 				A1B54C8C28199FE200E5446E /* SceneDelegate.swift in Sources */,
 				A12F3C9F281AB05A00C022D5 /* Observable.swift in Sources */,
 				A19C55E7281B1C4A00E925FF /* WishCategoryDummyDataStore.swift in Sources */,
+				A1C166C5281B8ACB00B899A1 /* WishlistTableViewCell.swift in Sources */,
 				A12F3C91281A73C700C022D5 /* WishItemStoreProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
