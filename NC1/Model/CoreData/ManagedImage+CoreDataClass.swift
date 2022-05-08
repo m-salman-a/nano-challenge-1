@@ -11,5 +11,13 @@ import CoreData
 
 @objc(ManagedImage)
 public class ManagedImage: NSManagedObject {
-
+    
+    func toImage() -> Data {
+       return Data(image ?? Data())
+    }
+    
+    func fromImage(data: Data) {
+        image = data
+    }
+    
 }

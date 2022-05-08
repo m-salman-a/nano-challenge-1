@@ -26,16 +26,14 @@ class WishItemDummyDataStore: WishItemStoreProtocol {
         return items
     }
     
-    func createWishItem(item: WishItem) {
+    func editWishItem(item: WishItem) {
+        if let index = items.firstIndex(where: { $0.id == item.id }) {
+            items[index] = item
+            
+            return
+        }
+        
         items.append(item)
-    }
-    
-    func updateWishItem(id: UUID, item: WishItem) {
-        guard var prevItem = items.first(where: { $0.id == id }) else { return }
-        
-        prevItem = item
-        
-        prevItem.id = id
     }
     
     func deleteWishItem(id: UUID) {

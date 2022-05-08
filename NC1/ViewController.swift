@@ -11,9 +11,33 @@ class ViewController: UIViewController {
     
     var wishItemsObservable: WishItemsObservable!
     var wishCategoriesObservable: WishCategoriesObservable!
+    var selectedItem: WishItem? = nil
+    
+    // TODO: refactor
+    var groupedWishItems = [[WishItem]]()
+    func groupItemsByCategory(items: [WishItem], categories: [WishCategory]) -> [[WishItem]] {
+        var groupedItems = [[WishItem]]()
+        
+        groupedItems.append(items.filter {
+            $0.category == nil
+        })
+        
+        categories.forEach {
+            category in
+            groupedItems.append(items.filter {
+                $0.category?.name == category.name
+            })
+        }
+        
+        return groupedItems
+    }
+    
+    
+    @IBOutlet weak var wishlistTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         
         wishlistTableView.register(UINib(nibName: "WishlistTableViewCell", bundle: nil), forCellReuseIdentifier: "WishlistTableViewCell")
@@ -28,48 +52,66 @@ class ViewController: UIViewController {
             fatalError("This view needs its observable")
         }
         
+        wishItemsObservable.addListener(self)
+        
+        wishCategoriesObservable.fetchWishCategories()
         wishItemsObservable.fetchWishItems()
     }
     
-    @IBOutlet weak var wishlistTableView: UITableView!
-    
-
     @IBAction func addNewItem(_ sender: Any) {
         performSegue(withIdentifier: "goToEdit", sender: self)
     }
     
-    @IBAction func compareItems(_ sender: Any) {
-        
-    }
-    
     @IBAction func addNewFolder(_ sender: Any) {
+        // Declare Alert message
+        let alert = UIAlertController(title: "Add New Category", message: "Enter the name of the category", preferredStyle: .alert)
         
+        // Add text field
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Type in the name of the category"
+        })
+        
+        let ok = UIAlertAction(title: "OK", style: .default, handler: {
+            [weak self] (action) -> Void in
+            guard let text = alert.textFields?[0].text else { return }
+            
+            self?.wishCategoriesObservable.createWishCategories(
+                category: WishCategory(name: text)
+            )
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        
+        // Present alert message to user
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToEdit" {
             let dest = segue.destination as! EditItemViewController
             
-            wishCategoriesObservable.fetchWishCategories()
-            
+            dest.item = selectedItem
             dest.categories = wishCategoriesObservable.wishCategories
-            
-            print(dest.itemName)
         }
     }
     
     @IBAction func unwindFromAddItem(_ sender: UIStoryboardSegue) {
         if sender.source is EditItemViewController {
             let source = sender.source as! EditItemViewController
-            let item = WishItem(name: source.itemName,
-                                price: source.itemPrice,
-                                links: source.links,
-                                likes: [],
-                                dislikes: [],
-                                category: source.selectedCategory,
-                                images: source.imagesData)
             
-            wishItemsObservable.createWishItem(item: item)
+            guard let item = source.item else { return }
+            
+            wishItemsObservable.editWishItem(item: item)
+            
+            // If there is selection
+            if let index = wishlistTableView.indexPathForSelectedRow {
+                selectedItem = nil
+                DispatchQueue.main.async { [weak self] in
+                    self?.wishlistTableView.deselectRow(at: index, animated: true)
+                }
+            }
         }
     }
 }
@@ -77,56 +119,75 @@ class ViewController: UIViewController {
 extension ViewController: Observer {
     func update(with: Observable) {
         // Reflect changes in the UI
+        groupedWishItems = groupItemsByCategory(
+            items: wishItemsObservable.wishItems,
+            categories: wishCategoriesObservable.wishCategories
+        )
         
-        wishlistTableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.wishlistTableView.reloadData()
+        }
     }
 }
 
 extension ViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wishItemsObservable.wishItems.count
+        return groupedWishItems[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WishlistTableViewCell") as! WishlistTableViewCell
-        let item = wishItemsObservable.wishItems[indexPath.row]
+        
+        let item = groupedWishItems[indexPath.section][indexPath.row]
         
         cell.titleLabel.text = item.name
         cell.secondaryTitleLabel.text = item.priceString
-        if let image = item.images.first {
-            cell.imageOutlet.image = UIImage(data: image) ?? UIImage()
+        if let imageData = item.images.first {
+            if let image = UIImage(data: imageData) {
+                cell.imageOutlet.image = image
+            }
         }
+
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return groupedWishItems.count
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        return section == 0 ? 0 : 40
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 { return UIView() }
+        
         let headerView = UIView.init(frame:
                 CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 30))
-
-        headerView.backgroundColor = .red
-
-//        let label = UILabel()
-//
-//        label.frame = CGRect.init(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height)
-
-//        headerView.addSubview(label)
+        
+        let titleLabel = UILabel(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 30))
+        titleLabel.font = .systemFont(ofSize: 24.0, weight: .bold)
+        titleLabel.text = wishCategoriesObservable.wishCategories[section - 1].name
+        
+        headerView.addSubview(titleLabel)
 
         return headerView
     }
+    
 }
 
 extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedItem = groupedWishItems[indexPath.section][indexPath.row]
+        
+        performSegue(withIdentifier: "goToEdit", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let item = wishItemsObservable.wishItems[indexPath.row]
+        let item = groupedWishItems[indexPath.section][indexPath.row]
         
         let editAction = UIContextualAction(style: .normal, title: "Edit") {
             (action, view, handler) in
@@ -136,9 +197,12 @@ extension ViewController: UITableViewDelegate {
             [weak self] (action, view, handler) in
             
             self?.wishItemsObservable.deleteWishItem(id: item.id)
+            
+            tableView.deleteRows(at: [indexPath], with: .right)
         }
         
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
+    
 }
 

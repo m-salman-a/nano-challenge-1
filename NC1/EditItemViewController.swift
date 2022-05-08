@@ -11,10 +11,10 @@ import UIKit
 class EditItemViewController: UIViewController, UINavigationControllerDelegate {
     
     let imagePicker = UIImagePickerController()
-    var itemName = ""
-    var itemPrice = 0.00
-    private var images = [UIImage]()
-    var imagesData = [Data]()
+    
+    // TODO: ideally component ini kayanya gausah buat2 WishItem
+    var item: WishItem?
+    var images = [Data]()
     var links = [Link]()
     var categories = [WishCategory]()
     var selectedCategory: WishCategory?
@@ -29,7 +29,15 @@ class EditItemViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let item = item {
+            itemNameField.text = item.name
+            itemPriceField.text = String(item.price)
+            links = item.links
+            images = item.images
+            selectedCategory = item.category
+        }
+            
         // Do any additional setup after loading the view.
         editImagesCollection.register(UINib(nibName: "EditImagesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "EditImagesCollectionViewCell")
         editImagesCollection.dataSource = self
@@ -53,16 +61,6 @@ class EditItemViewController: UIViewController, UINavigationControllerDelegate {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        itemName = itemNameField.text ?? "Empty"
-        itemPrice = Double(itemPriceField.text ?? "00.00") ?? 0.0
-        images.forEach {
-            guard let data = $0.pngData() else { return }
-            
-            imagesData.append(data)
-        }
-    }
-    
     func initializeCategoryPopup() {
         let actions = categories.map {
             category in
@@ -78,12 +76,31 @@ class EditItemViewController: UIViewController, UINavigationControllerDelegate {
         itemCategoryPopup.menu = UIMenu(title: "Select one", children: [emptyAction] + actions)
         itemCategoryPopup.showsMenuAsPrimaryAction = true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        item = WishItem(
+            id: item?.id ?? UUID(),
+            name: itemNameField.text ?? "",
+            price: Double(itemPriceField.text ?? "") ?? 0,
+            links: links,
+            likes: [],
+            dislikes: [],
+            category: selectedCategory,
+            images: images
+        )
+        images = []
+        links = []
+    }
 }
 
 extension EditItemViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            images.append(pickedImage)
+            let resizedImage = pickedImage.resized(to: CGSize(width: 120, height: 120))
+            
+            if let data = resizedImage.pngData() {
+                images.append(data)
+            }
             
             editImagesCollection.reloadData()
         }
@@ -107,7 +124,7 @@ extension EditItemViewController: UICollectionViewDataSource {
         cell.delegate = self
         cell.index = indexPath.row
         cell.image.contentMode = .scaleAspectFit
-        cell.image.image = images[indexPath.row]
+        cell.image.image = UIImage(data: images[indexPath.row])
         
         return cell
     }
@@ -157,13 +174,16 @@ extension EditItemViewController: UITableViewDelegate {
 
 extension EditItemViewController: EditItemTableViewProtocol {
     func didFinishEditing(url: String, placeholder: String, index: Int) {
-        links[index] = Link(url: url, placeholder: placeholder)
+        // Avoid bug where user hasn't finished editing but already saved,
+        // so the array will be empty
+        if !links.isEmpty {
+            links[index] = Link(url: url, placeholder: placeholder)
+        }
     }
 }
 
 extension EditItemViewController: EditItemTableViewHeaderProtocol {
     func addItem() {
-        
         links.append(Link(url: "", placeholder: ""))
         
         itemLinksTableHeightConstraint.constant = CGFloat(links.count * 80 + 50)

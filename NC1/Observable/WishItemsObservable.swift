@@ -11,32 +11,20 @@ class WishItemsObservable: Observable {
     
     let dataStore: WishItemStoreProtocol
     
-    private var _wishItems = [WishItem]()
-    
-    var wishItems: [WishItem] {
-        get {
-            _wishItems
-        }
-    }
+    private(set) var wishItems = [WishItem]()
     
     init(dataStore: WishItemStoreProtocol) {
         self.dataStore = dataStore
     }
     
     func fetchWishItems() {
-        _wishItems = dataStore.fetchWishItems()
+        wishItems = dataStore.fetchWishItems()
         
         notifyListeners()
     }
     
-    func createWishItem(item: WishItem) {
-        dataStore.createWishItem(item: item)
-        
-        fetchWishItems()
-    }
-    
-    func updateWishItem(id: UUID, item: WishItem) {
-        dataStore.updateWishItem(id: id, item: item)
+    func editWishItem(item: WishItem) {
+        dataStore.editWishItem(item: item)
         
         fetchWishItems()
     }

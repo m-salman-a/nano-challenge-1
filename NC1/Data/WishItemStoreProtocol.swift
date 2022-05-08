@@ -9,7 +9,6 @@ import Foundation
 
 protocol WishItemStoreProtocol {
     func fetchWishItems() -> [WishItem]
-    func createWishItem(item: WishItem)
-    func updateWishItem(id: UUID, item: WishItem)
+    func editWishItem(item: WishItem)
     func deleteWishItem(id: UUID)
 }

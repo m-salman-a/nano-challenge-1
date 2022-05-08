@@ -15,25 +15,22 @@
 		A12F3C9D281AAFDC00C022D5 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F3C9C281AAFDC00C022D5 /* Observer.swift */; };
 		A12F3C9F281AB05A00C022D5 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F3C9E281AB05A00C022D5 /* Observable.swift */; };
 		A12F3CA1281AB17A00C022D5 /* WishItemsObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F3CA0281AB17A00C022D5 /* WishItemsObservable.swift */; };
-		A12F3CA7281AF4BC00C022D5 /* ManagedWishCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F3CA6281AF4BC00C022D5 /* ManagedWishCategory+CoreDataProperties.swift */; };
-		A12F3CAF281AF57900C022D5 /* ManagedWishItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F3CAC281AF57900C022D5 /* ManagedWishItem+CoreDataProperties.swift */; };
 		A12F3CB6281AF73900C022D5 /* ManagedImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F3CB4281AF73900C022D5 /* ManagedImage+CoreDataClass.swift */; };
-		A12F3CB7281AF73900C022D5 /* ManagedImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F3CB5281AF73900C022D5 /* ManagedImage+CoreDataProperties.swift */; };
 		A152F2B0281AFB4A003F56B0 /* EditImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152F2AE281AFB4A003F56B0 /* EditImagesCollectionViewCell.swift */; };
 		A152F2B1281AFB4A003F56B0 /* EditImagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A152F2AF281AFB4A003F56B0 /* EditImagesCollectionViewCell.xib */; };
 		A152F2B3281B0469003F56B0 /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152F2B2281B0469003F56B0 /* EditItemViewController.swift */; };
+		A15454142828215B0021AE34 /* CoreDataPersistentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15454132828215B0021AE34 /* CoreDataPersistentController.swift */; };
+		A15454162828241D0021AE34 /* ManagedWishItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15454152828241D0021AE34 /* ManagedWishItem+CoreDataClass.swift */; };
+		A15454182828247C0021AE34 /* DetailItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15454172828247C0021AE34 /* DetailItemViewController.swift */; };
 		A15B8401281B51D90073E74F /* EditItemTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B83FF281B51D90073E74F /* EditItemTableViewHeader.swift */; };
 		A15B8402281B51D90073E74F /* EditItemTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15B8400281B51D90073E74F /* EditItemTableViewHeader.xib */; };
 		A15B8405281B556F0073E74F /* EditItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B8403281B556F0073E74F /* EditItemTableViewCell.swift */; };
 		A15B8406281B556F0073E74F /* EditItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15B8404281B556F0073E74F /* EditItemTableViewCell.xib */; };
-		A172540E281A4534007A9952 /* DetailItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172540D281A4534007A9952 /* DetailItemViewController.swift */; };
 		A172543A281A5501007A9952 /* WishItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1725439281A5501007A9952 /* WishItem.swift */; };
 		A172543C281A577F007A9952 /* WishCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172543B281A577F007A9952 /* WishCategory.swift */; };
 		A172544E281A5A3A007A9952 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172544D281A5A3A007A9952 /* Link.swift */; };
 		A1725460281A6BF7007A9952 /* ManagedWishCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172545A281A6BF7007A9952 /* ManagedWishCategory+CoreDataClass.swift */; };
-		A1725462281A6BF7007A9952 /* ManagedWishItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172545C281A6BF7007A9952 /* ManagedWishItem+CoreDataClass.swift */; };
 		A1725464281A6BF7007A9952 /* ManagedLink+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172545E281A6BF7007A9952 /* ManagedLink+CoreDataClass.swift */; };
-		A1725465281A6BF7007A9952 /* ManagedLink+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172545F281A6BF7007A9952 /* ManagedLink+CoreDataProperties.swift */; };
 		A19356C12819A9AF00CD041F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A19356C02819A9AF00CD041F /* .gitignore */; };
 		A19C55E5281B1B8C00E925FF /* WishCategoriesObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C55E4281B1B8C00E925FF /* WishCategoriesObservable.swift */; };
 		A19C55E7281B1C4A00E925FF /* WishCategoryDummyDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19C55E6281B1C4A00E925FF /* WishCategoryDummyDataStore.swift */; };
@@ -46,6 +43,7 @@
 		A1B54C9928199FE200E5446E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B54C9728199FE200E5446E /* LaunchScreen.storyboard */; };
 		A1C166C5281B8ACB00B899A1 /* WishlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C166C3281B8ACB00B899A1 /* WishlistTableViewCell.swift */; };
 		A1C166C6281B8ACB00B899A1 /* WishlistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C166C4281B8ACB00B899A1 /* WishlistTableViewCell.xib */; };
+		A1C166EB281C7BF800B899A1 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C166EA281C7BF800B899A1 /* UIImage+resize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,25 +55,22 @@
 		A12F3C9C281AAFDC00C022D5 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		A12F3C9E281AB05A00C022D5 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		A12F3CA0281AB17A00C022D5 /* WishItemsObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishItemsObservable.swift; sourceTree = "<group>"; };
-		A12F3CA6281AF4BC00C022D5 /* ManagedWishCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ManagedWishCategory+CoreDataProperties.swift"; path = "../../../../../.Trash/ManagedWishCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A12F3CAC281AF57900C022D5 /* ManagedWishItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedWishItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A12F3CB4281AF73900C022D5 /* ManagedImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedImage+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A12F3CB5281AF73900C022D5 /* ManagedImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A152F2AE281AFB4A003F56B0 /* EditImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		A152F2AF281AFB4A003F56B0 /* EditImagesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditImagesCollectionViewCell.xib; sourceTree = "<group>"; };
 		A152F2B2281B0469003F56B0 /* EditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewController.swift; sourceTree = "<group>"; };
+		A15454132828215B0021AE34 /* CoreDataPersistentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistentController.swift; sourceTree = "<group>"; };
+		A15454152828241D0021AE34 /* ManagedWishItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ManagedWishItem+CoreDataClass.swift"; path = "../../../../../.Trash/ManagedWishItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A15454172828247C0021AE34 /* DetailItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailItemViewController.swift; path = ../../../.Trash/DetailItemViewController.swift; sourceTree = "<group>"; };
 		A15B83FF281B51D90073E74F /* EditItemTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemTableViewHeader.swift; sourceTree = "<group>"; };
 		A15B8400281B51D90073E74F /* EditItemTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditItemTableViewHeader.xib; sourceTree = "<group>"; };
 		A15B8403281B556F0073E74F /* EditItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemTableViewCell.swift; sourceTree = "<group>"; };
 		A15B8404281B556F0073E74F /* EditItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditItemTableViewCell.xib; sourceTree = "<group>"; };
-		A172540D281A4534007A9952 /* DetailItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemViewController.swift; sourceTree = "<group>"; };
 		A1725439281A5501007A9952 /* WishItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishItem.swift; sourceTree = "<group>"; };
 		A172543B281A577F007A9952 /* WishCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCategory.swift; sourceTree = "<group>"; };
 		A172544D281A5A3A007A9952 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		A172545A281A6BF7007A9952 /* ManagedWishCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedWishCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A172545C281A6BF7007A9952 /* ManagedWishItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedWishItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A172545E281A6BF7007A9952 /* ManagedLink+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedLink+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A172545F281A6BF7007A9952 /* ManagedLink+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedLink+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A19356C02819A9AF00CD041F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A19C55E4281B1B8C00E925FF /* WishCategoriesObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCategoriesObservable.swift; sourceTree = "<group>"; };
 		A19C55E6281B1C4A00E925FF /* WishCategoryDummyDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCategoryDummyDataStore.swift; sourceTree = "<group>"; };
@@ -90,6 +85,7 @@
 		A1B54C9A28199FE200E5446E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1C166C3281B8ACB00B899A1 /* WishlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistTableViewCell.swift; sourceTree = "<group>"; };
 		A1C166C4281B8ACB00B899A1 /* WishlistTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistTableViewCell.xib; sourceTree = "<group>"; };
+		A1C166EA281C7BF800B899A1 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +108,7 @@
 				A12F3C97281A77F400C022D5 /* WishItemCoreDataStore.swift */,
 				A12F3C99281A8E9900C022D5 /* WishItemDummyDataStore.swift */,
 				A19C55E6281B1C4A00E925FF /* WishCategoryDummyDataStore.swift */,
+				A15454132828215B0021AE34 /* CoreDataPersistentController.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -127,7 +124,7 @@
 			path = Observable;
 			sourceTree = "<group>";
 		};
-		A12F3CB8281AF86800C022D5 /* Views */ = {
+		A12F3CB8281AF86800C022D5 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				A152F2AE281AFB4A003F56B0 /* EditImagesCollectionViewCell.swift */,
@@ -139,20 +136,16 @@
 				A1C166C3281B8ACB00B899A1 /* WishlistTableViewCell.swift */,
 				A1C166C4281B8ACB00B899A1 /* WishlistTableViewCell.xib */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		A172544F281A5AD2007A9952 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				A12F3CB4281AF73900C022D5 /* ManagedImage+CoreDataClass.swift */,
-				A12F3CB5281AF73900C022D5 /* ManagedImage+CoreDataProperties.swift */,
-				A12F3CAC281AF57900C022D5 /* ManagedWishItem+CoreDataProperties.swift */,
-				A172545C281A6BF7007A9952 /* ManagedWishItem+CoreDataClass.swift */,
 				A172545A281A6BF7007A9952 /* ManagedWishCategory+CoreDataClass.swift */,
-				A12F3CA6281AF4BC00C022D5 /* ManagedWishCategory+CoreDataProperties.swift */,
+				A15454152828241D0021AE34 /* ManagedWishItem+CoreDataClass.swift */,
 				A172545E281A6BF7007A9952 /* ManagedLink+CoreDataClass.swift */,
-				A172545F281A6BF7007A9952 /* ManagedLink+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -176,7 +169,8 @@
 		A1B54C8828199FE200E5446E /* NC1 */ = {
 			isa = PBXGroup;
 			children = (
-				A12F3CB8281AF86800C022D5 /* Views */,
+				A1C166E9281C7BE700B899A1 /* Helper */,
+				A12F3CB8281AF86800C022D5 /* View */,
 				A12F3C9B281AAFCB00C022D5 /* Observable */,
 				A12F3C8C281A73C700C022D5 /* Data */,
 				A1B6A9A8281A2BA200C79033 /* Model */,
@@ -184,7 +178,7 @@
 				A1B54C8928199FE200E5446E /* AppDelegate.swift */,
 				A1B54C8D28199FE200E5446E /* ViewController.swift */,
 				A152F2B2281B0469003F56B0 /* EditItemViewController.swift */,
-				A172540D281A4534007A9952 /* DetailItemViewController.swift */,
+				A15454172828247C0021AE34 /* DetailItemViewController.swift */,
 				A1B54C8F28199FE200E5446E /* Main.storyboard */,
 				A1B54C9528199FE200E5446E /* Assets.xcassets */,
 				A1B54C9728199FE200E5446E /* LaunchScreen.storyboard */,
@@ -204,6 +198,14 @@
 				A172544D281A5A3A007A9952 /* Link.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A1C166E9281C7BE700B899A1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A1C166EA281C7BF800B899A1 /* UIImage+resize.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,35 +284,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A12F3CA7281AF4BC00C022D5 /* ManagedWishCategory+CoreDataProperties.swift in Sources */,
 				A152F2B3281B0469003F56B0 /* EditItemViewController.swift in Sources */,
 				A12F3C98281A77F400C022D5 /* WishItemCoreDataStore.swift in Sources */,
 				A1B54C8E28199FE200E5446E /* ViewController.swift in Sources */,
 				A1B54C8A28199FE200E5446E /* AppDelegate.swift in Sources */,
+				A15454182828247C0021AE34 /* DetailItemViewController.swift in Sources */,
 				A15B8401281B51D90073E74F /* EditItemTableViewHeader.swift in Sources */,
 				A172544E281A5A3A007A9952 /* Link.swift in Sources */,
 				A19C55E5281B1B8C00E925FF /* WishCategoriesObservable.swift in Sources */,
-				A12F3CAF281AF57900C022D5 /* ManagedWishItem+CoreDataProperties.swift in Sources */,
 				A12F3CA1281AB17A00C022D5 /* WishItemsObservable.swift in Sources */,
+				A15454142828215B0021AE34 /* CoreDataPersistentController.swift in Sources */,
 				A15B8405281B556F0073E74F /* EditItemTableViewCell.swift in Sources */,
-				A1725465281A6BF7007A9952 /* ManagedLink+CoreDataProperties.swift in Sources */,
 				A172543A281A5501007A9952 /* WishItem.swift in Sources */,
 				A12F3C9A281A8E9900C022D5 /* WishItemDummyDataStore.swift in Sources */,
 				A12F3C90281A73C700C022D5 /* WishCategoryCoreDataStore.swift in Sources */,
-				A172540E281A4534007A9952 /* DetailItemViewController.swift in Sources */,
+				A1C166EB281C7BF800B899A1 /* UIImage+resize.swift in Sources */,
 				A1725460281A6BF7007A9952 /* ManagedWishCategory+CoreDataClass.swift in Sources */,
 				A1725464281A6BF7007A9952 /* ManagedLink+CoreDataClass.swift in Sources */,
 				A12F3C92281A73C700C022D5 /* WishCategoryStoreProtocol.swift in Sources */,
 				A1B54C9428199FE200E5446E /* NC1.xcdatamodeld in Sources */,
-				A1725462281A6BF7007A9952 /* ManagedWishItem+CoreDataClass.swift in Sources */,
 				A12F3C9D281AAFDC00C022D5 /* Observer.swift in Sources */,
 				A172543C281A577F007A9952 /* WishCategory.swift in Sources */,
-				A12F3CB7281AF73900C022D5 /* ManagedImage+CoreDataProperties.swift in Sources */,
 				A152F2B0281AFB4A003F56B0 /* EditImagesCollectionViewCell.swift in Sources */,
 				A12F3CB6281AF73900C022D5 /* ManagedImage+CoreDataClass.swift in Sources */,
 				A1B54C8C28199FE200E5446E /* SceneDelegate.swift in Sources */,
 				A12F3C9F281AB05A00C022D5 /* Observable.swift in Sources */,
 				A19C55E7281B1C4A00E925FF /* WishCategoryDummyDataStore.swift in Sources */,
+				A15454162828241D0021AE34 /* ManagedWishItem+CoreDataClass.swift in Sources */,
 				A1C166C5281B8ACB00B899A1 /* WishlistTableViewCell.swift in Sources */,
 				A12F3C91281A73C700C022D5 /* WishItemStoreProtocol.swift in Sources */,
 			);

@@ -18,11 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        // Setup data stores
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        let context = delegate.persistentContainer.viewContext
-        let wishItemDataStore = WishItemDummyDataStore()
-        let wishCategoryDataStore = WishCategoryDummyDataStore()
+        // For testing
+        // let wishItemDataStore = WishItemDummyDataStore()
+        // let wishCategoryDataStore = WishCategoryDummyDataStore()
+        
+        // For production
+        let controller = CoreDataPersistentController()
+        let wishItemDataStore = WishItemCoreDataStore(controller: controller)
+        let wishCategoryDataStore = WishCategoryCoreDataStore(controller: controller)
         
         // Setup observables
         let wishItemsObservable = WishItemsObservable(dataStore: wishItemDataStore)
@@ -35,7 +38,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "MyViewController") as! ViewController
         rootViewController.wishItemsObservable = wishItemsObservable
         rootViewController.wishCategoriesObservable = wishCategoriesObservable
-        wishItemsObservable.addListener(rootViewController)
 
         // NavigationController
         let navigationController = mainStoryboard.instantiateViewController(withIdentifier: "MyNavigationController") as! UINavigationController
@@ -77,7 +79,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
 

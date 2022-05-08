@@ -10,28 +10,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishlistTableViewCell" rowHeight="170" id="KGk-i7-Jjw" customClass="WishlistTableViewCell" customModule="NC1" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="649" height="151"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishlistTableViewCell" rowHeight="80" id="KGk-i7-Jjw" customClass="WishlistTableViewCell" customModule="NC1" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="649" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="649" height="151"/>
+                <rect key="frame" x="0.0" y="0.0" width="649" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="41U-ez-dCK">
-                        <rect key="frame" x="20" y="11" width="64" height="64"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41U-ez-dCK">
+                        <rect key="frame" x="8" y="0.0" width="80" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="64" id="Qdp-vO-9Tf"/>
-                            <constraint firstAttribute="width" constant="64" id="iH2-gZ-ui3"/>
+                            <constraint firstAttribute="height" constant="80" id="Qdp-vO-9Tf"/>
+                            <constraint firstAttribute="width" constant="80" id="iH2-gZ-ui3"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA7-Px-9JG">
-                        <rect key="frame" x="116" y="11" width="61.5" height="36.5"/>
+                        <rect key="frame" x="104" y="0.0" width="61.5" height="41.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YtX-hg-YGn">
-                        <rect key="frame" x="597" y="27" width="32" height="32"/>
+                        <rect key="frame" x="597" y="24" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="ev7-3h-kXs"/>
                             <constraint firstAttribute="height" constant="32" id="wv2-T5-zYK"/>
@@ -41,24 +41,22 @@
                         <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYg-cI-ziP">
-                        <rect key="frame" x="116" y="55.5" width="39.5" height="19.5"/>
+                        <rect key="frame" x="104" y="49.5" width="39.5" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" systemColor="systemGray2Color"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="RA7-Px-9JG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="3rC-Z1-F3H"/>
+                    <constraint firstItem="RA7-Px-9JG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3rC-Z1-F3H"/>
                     <constraint firstItem="YtX-hg-YGn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KQW-3T-rWG"/>
                     <constraint firstAttribute="trailingMargin" secondItem="YtX-hg-YGn" secondAttribute="trailing" id="QqC-Z7-SuK"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="41U-ez-dCK" secondAttribute="bottom" id="Qy8-dY-bKU"/>
                     <constraint firstAttribute="bottomMargin" secondItem="JYg-cI-ziP" secondAttribute="bottom" id="TbA-pd-XIS"/>
-                    <constraint firstItem="RA7-Px-9JG" firstAttribute="leading" secondItem="41U-ez-dCK" secondAttribute="trailing" constant="32" id="X8r-f7-KqX"/>
-                    <constraint firstItem="41U-ez-dCK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="db6-6v-HSn"/>
-                    <constraint firstItem="41U-ez-dCK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="do7-bN-iax"/>
+                    <constraint firstItem="RA7-Px-9JG" firstAttribute="leading" secondItem="41U-ez-dCK" secondAttribute="trailing" constant="16" id="X8r-f7-KqX"/>
+                    <constraint firstItem="41U-ez-dCK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="db6-6v-HSn"/>
+                    <constraint firstItem="41U-ez-dCK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="do7-bN-iax"/>
                     <constraint firstItem="JYg-cI-ziP" firstAttribute="top" secondItem="RA7-Px-9JG" secondAttribute="bottom" constant="8" id="ppK-FH-E6w"/>
-                    <constraint firstItem="41U-ez-dCK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tHj-As-GwE"/>
-                    <constraint firstItem="JYg-cI-ziP" firstAttribute="leading" secondItem="41U-ez-dCK" secondAttribute="trailing" constant="32" id="zvR-cw-v7M"/>
+                    <constraint firstItem="JYg-cI-ziP" firstAttribute="leading" secondItem="41U-ez-dCK" secondAttribute="trailing" constant="16" id="zvR-cw-v7M"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -67,7 +65,7 @@
                 <outlet property="secondaryTitleLabel" destination="JYg-cI-ziP" id="KlT-wE-9VO"/>
                 <outlet property="titleLabel" destination="RA7-Px-9JG" id="Jqj-jp-WRk"/>
             </connections>
-            <point key="canvasLocation" x="355.79710144927537" y="43.861607142857139"/>
+            <point key="canvasLocation" x="355.79710144927537" y="19.419642857142858"/>
         </tableViewCell>
     </objects>
     <resources>

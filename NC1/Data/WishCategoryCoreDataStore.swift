@@ -12,10 +12,12 @@ class WishCategoryCoreDataStore: WishCategoryStoreProtocol {
     
     // MARK: - Object Lifecycle
     
+    let controller: CoreDataPersistentController
     let context: NSManagedObjectContext
     
-    init(context: NSManagedObjectContext) {
-        self.context = context
+    init(controller: CoreDataPersistentController) {
+        self.controller = controller
+        self.context = controller.persistentContainer.viewContext
     }
     
     // MARK: - CRUD Operations
@@ -36,9 +38,7 @@ class WishCategoryCoreDataStore: WishCategoryStoreProtocol {
     func createWishCategory(categoryToAdd: WishCategory) {
         ManagedWishCategory(context: context).fromCategory(category: categoryToAdd)
         
-        do {
-            try context.save()
-            
-        } catch {}
+        controller.saveContext()
     }
+    
 }

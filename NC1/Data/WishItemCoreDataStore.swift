@@ -12,10 +12,12 @@ class WishItemCoreDataStore: WishItemStoreProtocol {
     
     // MARK: - Object Lifecycle
     
+    let controller: CoreDataPersistentController
     let context: NSManagedObjectContext
     
-    init(context: NSManagedObjectContext) {
-        self.context = context
+    init(controller: CoreDataPersistentController) {
+        self.controller = controller
+        self.context = controller.persistentContainer.viewContext
     }
     
     // MARK: - CRUD Operations
@@ -34,42 +36,22 @@ class WishItemCoreDataStore: WishItemStoreProtocol {
         return []
     }
     
-    func createWishItem(item: WishItem) {
-
-        let managedItem = ManagedWishItem(context: context)
+    func editWishItem(item: WishItem) {
+        let managedItem = fetchManagedWishItem(id: item.id) ?? ManagedWishItem(context: context)
         
-        managedItem.fromItem(item: item)
+        managedItem.fromItem(item: item, context: context)
 
-        addLinksToManagedItem(managedItem: managedItem, links: item.links)
-        
         addManagedItemToCategory(managedItem: managedItem, category: item.category)
         
-        saveContext()
-    }
-    
-    func updateWishItem(id: UUID, item: WishItem) {
-        
-        guard let managedItem = fetchManagedWishItem(id: id) else { return }
-        
-        managedItem.fromItem(item: item)
-        
-        managedItem.id = id
-        
-        addLinksToManagedItem(managedItem: managedItem, links: item.links)
-        
-        addManagedItemToCategory(managedItem: managedItem, category: item.category)
-        
-        saveContext()
-        
+        controller.saveContext()
     }
     
     func deleteWishItem(id: UUID) {
-        
         guard let managedItem = fetchManagedWishItem(id: id) else { return }
         
         context.delete(managedItem)
         
-        saveContext()
+        controller.saveContext()
     }
     
     // MARK: Private Helper Methods
@@ -81,29 +63,21 @@ class WishItemCoreDataStore: WishItemStoreProtocol {
             request.predicate = NSPredicate(format: "%K == %@", "id", id as CVarArg)
             
             return try context.fetch(request).first
-            
         } catch {}
         
         return nil
     }
     
-    private func addLinksToManagedItem(managedItem: ManagedWishItem, links: [Link]) {
-        links.forEach {
-            let managedLink = ManagedLink(context: context)
-            
-            managedLink.fromLink(link: $0)
-            
-            managedItem.addToLinks(managedLink)
-        }
-    }
-    
     private func addManagedItemToCategory(managedItem: ManagedWishItem,
                                           category: WishCategory?) {
-        guard category != nil else { return }
+        guard let category = category else {
+            managedItem.category = nil
+            return
+        }
         
         let request = ManagedWishCategory.fetchRequest()
         
-        request.predicate = NSPredicate(format: "%K LIKE %@", "name", category!.name)
+        request.predicate = NSPredicate(format: "%K LIKE %@", "name", category.name)
         
         do {
             let managedCategory = try context.fetch(request)
@@ -113,9 +87,4 @@ class WishItemCoreDataStore: WishItemStoreProtocol {
         } catch {}
     }
     
-    private func saveContext() {
-        do {
-            try context.save()
-        } catch {}
-    }
 }

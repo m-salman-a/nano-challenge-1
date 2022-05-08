@@ -21,10 +21,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="96" height="120"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yPo-wA-NLU">
-                                <rect key="frame" x="0.0" y="0.0" width="96" height="89"/>
+                                <rect key="frame" x="0.0" y="0.0" width="96" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="ZPB-VU-Cpj"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgh-5z-13R">
-                                <rect key="frame" x="0.0" y="89" width="96" height="31"/>
+                                <rect key="frame" x="0.0" y="90" width="96" height="30"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                 <buttonConfiguration key="configuration" style="plain" image="minus.circle.fill" catalog="system"/>
                                 <connections>

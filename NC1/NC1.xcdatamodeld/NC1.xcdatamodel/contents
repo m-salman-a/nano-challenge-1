@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ManagedImage" representedClassName="ManagedImage" syncable="YES">
+    <entity name="ManagedImage" representedClassName="ManagedImage" syncable="YES" codeGenerationType="category">
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedWishItem" inverseName="images" inverseEntity="ManagedWishItem"/>
     </entity>
-    <entity name="ManagedLink" representedClassName="ManagedLink" syncable="YES">
+    <entity name="ManagedLink" representedClassName="ManagedLink" syncable="YES" codeGenerationType="category">
         <attribute name="placeholder" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
         <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedWishItem" inverseName="links" inverseEntity="ManagedWishItem"/>
     </entity>
-    <entity name="ManagedWishCategory" representedClassName="ManagedWishCategory" syncable="YES">
+    <entity name="ManagedWishCategory" representedClassName="ManagedWishCategory" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="items" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="ManagedWishItem" inverseName="category" inverseEntity="ManagedWishItem"/>
     </entity>
-    <entity name="ManagedWishItem" representedClassName="ManagedWishItem" syncable="YES">
+    <entity name="ManagedWishItem" representedClassName="ManagedWishItem" syncable="YES" codeGenerationType="category">
         <attribute name="dislikes" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="likes" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
