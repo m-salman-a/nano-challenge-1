@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // let wishCategoryDataStore = WishCategoryDummyDataStore()
         
         // For production
-        let controller = CoreDataPersistentController()
+        let controller = CoreDataPersistentController.instance
         let wishItemDataStore = WishItemCoreDataStore(controller: controller)
         let wishCategoryDataStore = WishCategoryCoreDataStore(controller: controller)
         

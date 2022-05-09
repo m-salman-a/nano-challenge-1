@@ -53,9 +53,10 @@ class ViewController: UIViewController {
         }
         
         wishItemsObservable.addListener(self)
+        wishCategoriesObservable.addListener(self)
         
-        wishCategoriesObservable.fetchWishCategories()
         wishItemsObservable.fetchWishItems()
+        wishCategoriesObservable.fetchWishCategories()
     }
     
     @IBAction func addNewItem(_ sender: Any) {
@@ -161,7 +162,9 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 { return UIView() }
+        guard section != 0 else { return UIView() }
+        
+        guard !groupedWishItems[section].isEmpty else { return UIView() }
         
         let headerView = UIView.init(frame:
                 CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 30))
@@ -180,9 +183,17 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedItem = groupedWishItems[indexPath.section][indexPath.row]
+        guard let link = groupedWishItems[indexPath.section][indexPath.row].links.first?.url else {
+            return
+        }
         
-        performSegue(withIdentifier: "goToEdit", sender: self)
+        if let url = NSURL(string: link) as? URL {
+            UIApplication.shared.open(url, completionHandler: {
+                [weak self] isComplete in
+                
+                self?.wishlistTableView.deselectRow(at: indexPath, animated: true)
+            })
+        }
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -190,7 +201,11 @@ extension ViewController: UITableViewDelegate {
         let item = groupedWishItems[indexPath.section][indexPath.row]
         
         let editAction = UIContextualAction(style: .normal, title: "Edit") {
-            (action, view, handler) in
+            [weak self] (action, view, handler) in
+            
+            self?.selectedItem = self?.groupedWishItems[indexPath.section][indexPath.row]
+            
+            self?.performSegue(withIdentifier: "goToEdit", sender: self)
         }
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
@@ -199,6 +214,8 @@ extension ViewController: UITableViewDelegate {
             self?.wishItemsObservable.deleteWishItem(id: item.id)
             
             tableView.deleteRows(at: [indexPath], with: .right)
+            
+            self?.wishCategoriesObservable.fetchWishCategories()
         }
         
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])

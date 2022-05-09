@@ -10,6 +10,9 @@ import CoreData
 
 final class CoreDataPersistentController {
     
+    static let instance = CoreDataPersistentController()
+    private init() {}
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
